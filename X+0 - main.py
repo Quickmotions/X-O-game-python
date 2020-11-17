@@ -1,232 +1,297 @@
-import time
+#imports
 import random
-singlePlayerType = ""
-singlePlayerRowSelect = ""
-singlePlayerColumnSelect = ""
-singlePlayerRedoTurn = False
-row1A = " "
-row1B = " "
-row1C = " "
-row2A = " "
-row2B = " "
-row2C = " "
-row3A = " "
-row3B = " "
-row3C = " "
+import time
 
-gameType = ""
-gameRunning = False
-
-
-
-
-while True:
-    print("-------------------")
-    print("Knots and Crosses")
-    print("-------------------")
-    print("press enter to begin")
-
-    gameType = int(input())
-
-    print("\n do you want to play singleplayer or multiplayer \n s = singleplayer \n m = multiplayer")
-    gameType = ""
-    while gameType != "s" and gameType != "m":
-        gameType = str(input())
-        if gameType != "s" and gameType != "m":
-            print("Error, enter s or m")
-
-    if gameType == "s":
-        print("Starting singleplayer game")
-        gameRunning = True
-        time.sleep(2)
-        print("\n \n \n \n \n \n \n \n \n \n \n \n \n \n")
-        print("do you want to play x or o \n x goes first \n (type x or o)")
-        singlePlayerType = str(input())
-
-        if singlePlayerType != "x" and singlePlayerType != "o":
-            singlePlayerType = "x"
-        while gameRunning == True:
-            #player turn
-            #figure out n number
-            if singlePlayerType == "x":
-                singlePlayerRedoTurn = True
-                while singlePlayerRedoTurn == True:
-                    singlePlayerRedoTurn = False
-                    singlePlayerColumnSelect = ""
-                    singlePlayerRowSelect = ""
-                    singlePlayerRedoTurn = True
-                    print(row1A, " | ",row1B, " | ", row1C)
-                    print(row2A, " | ", row2B, " | ", row2C)
-                    print(row3A, " | ", row3B, " | ", row3C)
-
-                    print("\n what row do you want?\n 1 = row1 \n 2 = row2 \n 3 = row3")
-                    while singlePlayerRowSelect != 1 and singlePlayerRowSelect != 2 and singlePlayerRowSelect != 3:
-                        singlePlayerRowSelect = int(input())
-                        if singlePlayerRowSelect != 1 and singlePlayerRowSelect != 2 and singlePlayerRowSelect != 3:
-                            print("Error, expected 1, 2, or 3 \n please re-enter number")
-                        elif singlePlayerRowSelect == 1 or singlePlayerRowSelect == 2 or singlePlayerRowSelect == 3:
-                            break
-                    print("\n what column do you want? \n  1, 2 or 3")
-                    while singlePlayerColumnSelect != 1 and singlePlayerColumnSelect != 2 and singlePlayerColumnSelect != 3:
-                        singlePlayerColumnSelect = int(input())
-                        if singlePlayerColumnSelect != 1 and singlePlayerColumnSelect != 2 and singlePlayerColumnSelect != 3:
-                            print("Error, expected 1, 2, or 3 \n please re-enter number")
-                        elif singlePlayerColumnSelect == 1 or singlePlayerColumnSelect == 2 or singlePlayerColumnSelect == 3:
-                            break
-                            
-                    if singlePlayerRowSelect == 1 and singlePlayerColumnSelect == 1:
-                        if row1A == "X" or row1A == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row1A != "X" and row1A != "O":
-                            row1A = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 1 and singlePlayerColumnSelect == 2:
-                        if row1B == "X" or row1B == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row1B != "X" and row1B != "O":
-                            row1B = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 1 and singlePlayerColumnSelect == 3:
-                        if row1C == "X" or row1C == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row1C != "X" and row1C != "O":
-                            row1C = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 2 and singlePlayerColumnSelect == 1:
-                        if row2A == "X" or row2A == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row2A != "X" and row2A != "O":
-                            row2A = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 2 and singlePlayerColumnSelect == 2:
-                        if row2B == "X" or row2B == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row2B != "X" and row2B != "O":
-                            row2B = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 2 and singlePlayerColumnSelect == 3:
-                        if row2C == "X" or row2C == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row2C != "X" and row2C != "O":
-                            row2C = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 3 and singlePlayerColumnSelect == 1:
-                        if row3A == "X" or row3A == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row3A != "X" and row3A != "O":
-                            row3A = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 3 and singlePlayerColumnSelect == 2:
-                        if row3B == "X" or row3B == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row3B != "X" and row3B != "O":
-                            row3B = "X"
-                            singlePlayerRedoTurn = False
-
-                    if singlePlayerRowSelect == 3 and singlePlayerColumnSelect == 3:
-                        if row3C == "X" or row3C == "O":
-                            singlePlayerRedoTurn = True
-                            print("Error Space already taken redo turn")
-                        elif row3C != "X" and row3C != "O":
-                            row3C = "X"
-                            singlePlayerRedoTurn = False
-                            
-                            
-            #test for player win
-            
-            print("checking win conditions")
-            if row1A == "X" and row1B == "X" and row1C == "X":
-                print("player won")
-                #end
-            if row2A == "X" and row2B == "X" and row2C == "X":
-                print("player won")
-                #end
-            if row3A == "X" and row3B == "X" and row3C == "X":
-                print("player won")
-                #end
-            if row1A == "X" and row2A == "X" and row3A == "X":
-                print("player won")
-                #end
-            if row1B == "X" and row2B == "X" and row3B == "X":
-                print("player won")
-                #end
-            if row1C == "X" and row2C == "X" and row3C == "X":
-                print("player won")
-                #end
-             if row1A == "X" and row2B == "X" and row3C == "X":
-                print("player won")
-                #end
-            if row3A == "X" and row2B == "X" and row1C == "X":
-                print("player won")
-                #end
-          
-              
-
-
-            #Computer Turn
-            time.sleep(2)
-            print("computer turn here")
-            if row1A == "X" and row1B == "X" and row1C != "X":
-                row1C = "O"
-            if row1B == "X" and row1C == "X" and row1A != "X":
-                row1A = "O"
-            if row1C == "X" and row1A == "X" and row1B != "X":
-                row1B = "O"
-                
-            if row2A == "X" and row2B == "X" and row2C != "X":
-                row2C = "O"
-            if row2B == "X" and row2C == "X" and row2A != "X":
-                row2A = "O"
-            if row2C == "X" and row2A == "X" and row2B != "X":
-                row2B = "O"
+#modules
+def playerChoice():
+   boxChoice = 0
+   Choice = ""
+   if gameRunning == True:
+      time.sleep(0.5)
+      print("make first move")
+      Choice = str(input("Enter a number between 1 and 9: "))
+      while boxChoice == 0:
+         if Choice == "1" or Choice == "2" or Choice == "3" or Choice == "4" or Choice == "5" or Choice == "6" or Choice == "7" or Choice == "8" or  Choice == "9":
+            boxChoice = int(Choice)
+            if bo[boxChoice] == "-":
+               bo[int(boxChoice)]  = "X"
+               return
+            else:
+               boxChoice = 0
                
-            if row3A == "X" and row3B == "X" and row3C != "X":
-                row3C = "O"
-            if row3B == "X" and row3C == "X" and row3A != "X":
-                row2A = "O"
-            if row3C == "X" and row3A == "X" and row3B != "X":
-                row3B = "O"
-                
+               Choice = str(input("Position already taken, Re-enter a number: "))
+         else:
+            Choice = str(input("Incorrect Value, Re-enter a number between 1 and 9: "))
+      
+      
+
+
+def aiChoice():
+   if gameRunning == True:
+      time.sleep(0.5)
+      print("ai Selecting")
+
+          
+
+      if (bo[1] == "X" and bo[2] == "X" and bo[3] == "-"): # top row
+          boxChoice = 3
+          bo[boxChoice]  = "O"
+      elif (bo[2] == "X" and bo[3] == "X" and bo[1] == "-"):
+          boxChoice = 1
+          bo[boxChoice]  = "O"
+      elif (bo[1] == "X" and bo[3] == "X" and bo[2] == "-"):
+          boxChoice = 2
+          bo[boxChoice]  = "O"
+
+      elif (bo[4] == "X" and bo[5] == "X" and bo[6] == "-"): # middle row
+          boxChoice = 6
+          bo[boxChoice]  = "O"
+      elif (bo[5] == "X" and bo[6] == "X" and bo[4] == "-"):
+          boxChoice = 4
+          bo[boxChoice]  = "O"
+      elif (bo[4] == "X" and bo[6] == "X" and bo[5] == "-"):
+          boxChoice = 5
+          bo[boxChoice]  = "O"
+
+      elif (bo[7] == "X" and bo[8] == "X" and bo[9] == "-"): #bottom row
+          boxChoice = 9
+          bo[boxChoice]  = "O"
+      elif (bo[7] == "X" and bo[9] == "X" and bo[7] == "-"):
+          boxChoice = 8
+          bo[boxChoice]  = "O"
+      elif (bo[4] == "X" and bo[8] == "X" and bo[9] == "-"):
+          boxChoice = 7
+          bo[boxChoice]  = "O"
+
+      elif (bo[6] == "X" and bo[9] == "X" and bo[3] == "-"): #right column
+          boxChoice = 3
+          bo[boxChoice]  = "O"
+      elif (bo[3] == "X" and bo[9] == "X" and bo[6] == "-"):
+          boxChoice = 6
+          bo[boxChoice]  = "O"
+      elif (bo[3] == "X" and bo[6] == "X" and bo[9] == "-"):
+          boxChoice = 9
+          bo[boxChoice]  = "O"
+
+      elif (bo[5] == "X" and bo[8] == "X" and bo[2] == "-"): #middle column
+          boxChoice = 2
+          bo[boxChoice]  = "O"
+      elif (bo[2] == "X" and bo[8] == "X" and bo[5] == "-"):
+          boxChoice = 5
+          bo[boxChoice]  = "O"
+      elif (bo[2] == "X" and bo[5] == "X" and bo[8] == "-"):
+          boxChoice = 8
+          bo[boxChoice]  = "O"
+
+      elif (bo[4] == "X" and bo[7] == "X" and bo[1] == "-"): #left column
+          boxChoice = 1
+          bo[boxChoice]  = "O"
+      elif (bo[1] == "X" and bo[7] == "X" and bo[4] == "-"):
+          boxChoice = 4
+          bo[boxChoice]  = "O"
+      elif (bo[1] == "X" and bo[4] == "X" and bo[7] == "-"):
+          boxChoice = 7
+          bo[boxChoice]  = "O"
+
+      elif (bo[5] == "X" and bo[9] == "X" and bo[1] == "-"): #diagonal
+          boxChoice = 1
+          bo[boxChoice]  = "O"
+      elif (bo[1] == "X" and bo[9] == "X" and bo[5] == "-"):
+          boxChoice = 5
+          bo[boxChoice]  = "O"
+      elif (bo[1] == "X" and bo[5] == "X" and bo[9] == "-"):
+          boxChoice = 9
+          bo[boxChoice]  = "O"
+          
+      elif (bo[5] == "X" and bo[7] == "X" and bo[3] == "-"): #diagonal
+          boxChoice = 3
+          bo[boxChoice]  = "O"
+      elif (bo[3] == "X" and bo[7] == "X" and bo[5] == "-"):
+          boxChoice = 5
+          bo[boxChoice]  = "O"
+      elif (bo[3] == "X" and bo[5] == "X" and bo[7] == "-"):
+          boxChoice = 7
+          bo[boxChoice]  = "O"
+      else:
+
+
+
+            #ai try to win
+         if (bo[1] == "O" and bo[2] == "O" and bo[3] == "-"): # top row
+             boxChoice = 3
+             bo[boxChoice]  = "O"
+         elif (bo[2] == "O" and bo[3] == "O" and bo[1] == "-"):
+             boxChoice = 1
+             bo[boxChoice]  = "O"
+         elif (bo[1] == "O" and bo[3] == "O" and bo[2] == "-"):
+             boxChoice = 2
+             bo[boxChoice]  = "O"
+
+         elif (bo[4] == "O" and bo[5] == "O" and bo[6] == "-"): # middle row
+             boxChoice = 6
+             bo[boxChoice]  = "O"
+         elif (bo[5] == "O" and bo[6] == "O" and bo[4] == "-"):
+             boxChoice = 4
+             bo[boxChoice]  = "O"
+         elif (bo[4] == "O" and bo[6] == "O" and bo[5] == "-"):
+             boxChoice = 5
+             bo[boxChoice]  = "O"
+
+         elif (bo[7] == "O" and bo[8] == "O" and bo[9] == "-"): #bottom row
+             boxChoice = 9
+             bo[boxChoice]  = "O"
+         elif (bo[7] == "O" and bo[9] == "O" and bo[7] == "-"):
+             boxChoice = 8
+             bo[boxChoice]  = "O"
+         elif (bo[4] == "O" and bo[8] == "O" and bo[9] == "-"):
+             boxChoice = 7
+             bo[boxChoice]  = "O"
+
+         elif (bo[6] == "O" and bo[9] == "O" and bo[3] == "-"): #right column
+             boxChoice = 3
+             bo[boxChoice]  = "O"
+         elif (bo[3] == "O" and bo[9] == "O" and bo[6] == "-"):
+             boxChoice = 6
+             bo[boxChoice]  = "O"
+         elif (bo[3] == "O" and bo[6] == "O" and bo[9] == "-"):
+             boxChoice = 9
+             bo[boxChoice]  = "O"
+
+         elif (bo[5] == "O" and bo[8] == "O" and bo[2] == "-"): #middle column
+             boxChoice = 2
+             bo[boxChoice]  = "O"
+         elif (bo[2] == "O" and bo[8] == "O" and bo[5] == "-"):
+             boxChoice = 5
+             bo[boxChoice]  = "O"
+         elif (bo[2] == "O" and bo[5] == "O" and bo[8] == "-"):
+             boxChoice = 8
+             bo[boxChoice]  = "O"
+
+         elif (bo[4] == "O" and bo[7] == "O" and bo[1] == "-"): #left column
+             boxChoice = 1
+             bo[boxChoice]  = "O"
+         elif (bo[1] == "O" and bo[7] == "O" and bo[4] == "-"):
+             boxChoice = 4
+             bo[boxChoice]  = "O"
+         elif (bo[1] == "O" and bo[4] == "O" and bo[7] == "-"):
+             boxChoice = 7
+             bo[boxChoice]  = "O"
+
+         elif (bo[5] == "O" and bo[9] == "O" and bo[1] == "-"): #diagonal
+             boxChoice = 1
+             bo[boxChoice]  = "O"
+         elif (bo[1] == "O" and bo[9] == "O" and bo[5] == "-"):
+             boxChoice = 5
+             bo[boxChoice]  = "O"
+         elif (bo[1] == "O" and bo[5] == "O" and bo[9] == "-"):
+             boxChoice = 9
+             bo[boxChoice]  = "O"
+             
+         elif (bo[5] == "O" and bo[7] == "O" and bo[3] == "-"): #diagonal
+             boxChoice = 3
+             bo[boxChoice]  = "O"
+         elif (bo[3] == "O" and bo[7] == "O" and bo[5] == "-"):
+             boxChoice = 5
+             bo[boxChoice]  = "O"
+         elif (bo[3] == "O" and bo[5] == "O" and bo[7] == "-"):
+             boxChoice = 7
+             bo[boxChoice]  = "O"
+         else:
+            #check for middle
             
-                
+            if (bo[5] == "-"):
+               boxChoice = 5
+               bo[boxChoice]  = "O"
+            else:
+               #pick random 1-9
+               boxChoice = random.randint(1, 9)
+               while boxChoice <1 or boxChoice >9 or bo[boxChoice]  != "-":
+                  boxChoice = random.randint(1, 9)
+                  if bo[boxChoice]  != "-":
+                     bo[boxChoice]  = "O"
+               
+               bo[boxChoice]  = "O"
+
+
+def showUI():
+   print(bo[1] ,  bo[2], bo[3])
+   print(bo[4],  bo[5], bo[6])
+   print(bo[7], bo[8],bo[9])
+
+def winCheckP():
+   if ((bo[7] == "X" and bo[8] == "X" and bo[9] == "X") or # across the top
+      (bo[4] == "X" and bo[5] == "X" and bo[6] == "X") or # across the middle
+      (bo[1] == "X" and bo[2] == "X" and bo[3] == "X") or # across the bottom
+      (bo[7] == "X" and bo[4] == "X" and bo[1] == "X") or # down the left side
+      (bo[8] == "X" and bo[5] == "X" and bo[2] == "X") or # down the middle
+      (bo[9] == "X" and bo[6] == "X" and bo[3] == "X") or # down the right side
+      (bo[7] == "X" and bo[5] == "X" and bo[3] == "X") or # diagonal
+      (bo[9] == "X" and bo[5] == "X" and bo[1] == "X")):
+         return True
+   else:
+         return False
+
+def winCheckA():
+   if ((bo[7] == "O" and bo[8] == "O" and bo[9] == "O") or # across the top
+      (bo[4] == "O" and bo[5] == "O" and bo[6] == "O") or # across the middle
+      (bo[1] == "O" and bo[2] == "O" and bo[3] == "O") or # across the bottom
+      (bo[7] == "O" and bo[4] == "O" and bo[1] == "O") or # down the left side
+      (bo[8] == "O" and bo[5] == "O" and bo[2] == "O") or # down the middle
+      (bo[9] == "O" and bo[6] == "O" and bo[3] == "O") or # down the right side
+      (bo[7] == "O" and bo[5] == "O" and bo[3] == "O") or # diagonal
+      (bo[9] == "O" and bo[5] == "O" and bo[1] == "O")):
+         return True
+   else:
+         return False
+      
+
+
+def isBoardFull():
+   if "-" in bo:
+      return False
+   else:
+      return True
+    
+
+#vars
+bo = ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-"]
+gameRunning = True
+
+#game running
+while gameRunning == True:
+   playerChoice()
+   showUI()
+   if winCheckP() == True:
+         showUI()
+         print("Player Wins")
+         exit()
+   if winCheckA() == True:
+         showUI()
+         print("AI Wins")
+         exit()
+   if isBoardFull() == True:
+         showUI()
+         print('The game is a tie!')
+         exit()
+               
+   if gameRunning == True:
+      aiChoice()
+      showUI()
+   if winCheckP() == True:
+         showUI()
+         print("Player Wins")
+         exit()
+   if winCheckA() == True:
+         showUI()
+         print("AI Wins")
+         exit()
+         showUI()
+     
+   if isBoardFull() == True:
+         showUI()
+         print('The game is a tie!')
+         exit()
+               
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    if gameType == "m":
-        print("Starting multiplayer game")
-        gameRunning = True
-        time.sleep(2)
-        print("\n \n \n \n \n \n \n \n \n \n \n \n \n \n")
-
-
-
-
-
-
-#Fergus H
